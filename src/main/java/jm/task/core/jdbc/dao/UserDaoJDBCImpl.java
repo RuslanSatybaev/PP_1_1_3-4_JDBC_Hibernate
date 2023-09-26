@@ -9,19 +9,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static jm.task.core.jdbc.util.SqlHelper.*;
+
 public class UserDaoJDBCImpl implements UserDao {
-
-    private static final String DELETE_FROM_USERS = "DELETE FROM users";
-    private static final String DELETE_BY_ID = "DELETE FROM users WHERE id = ?";
-    private static final String INSERT_USER = "INSERT INTO users (name, last_name, age) VALUES (?,?,?)";
-    private static final String DROP_TABLE = "DROP TABLE IF EXISTS users";
-    private static final String CREATE_SQL = """
-            CREATE TABLE IF NOT EXISTS users (
-                id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-                name VARCHAR(255),
-                last_name VARCHAR(30),    age VARCHAR(100));""";
-    private static final String SELECT_FROM_USERS = "SELECT * FROM users";
-
     SqlHelper helper = new SqlHelper();
 
     public UserDaoJDBCImpl() {
